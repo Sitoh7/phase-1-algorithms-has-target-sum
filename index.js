@@ -1,5 +1,26 @@
-function hasTargetSum(array, target) {
+
   // Write your algorithm here
+  function hasTargetSum(array, target) {
+  // for (let i = 0; i < array.length; i++) {
+  //   const x = target - array[i];
+  //   for (let j = i + 1; j < array.length; j++) {
+  //     if (array[j] === x) return true;
+  //   }
+  // }
+
+  // return false;
+
+  let seenNumbers = new Set();
+
+  for (let num of array) {
+      let complement = target - num;
+      if (seenNumbers.has(complement)) {
+          return true;
+      }
+      seenNumbers.add(num);
+  }
+
+  return false;
 }
 
 /* 
